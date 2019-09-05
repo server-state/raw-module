@@ -2,7 +2,13 @@ const shellExec = require('shell-exec');
 
 /**
  * A module for the server-state system
- * @returns A JSON-serializable (via `JSON.stringify()`) version information about the server state
+ *
+ * Executes commands in the shell within the current context. The order of commands is not fixed.
+ *
+ * @throws if no commands get passed to the function
+ * @throws if a command gets passed two times
+ *
+ * @returns {object|array|string|number|boolean} A JSON-serializable (via `JSON.stringify()`) version information about the server state
  */
 module.exports = async function (commands) {
 	if (!commands || !commands.length)
