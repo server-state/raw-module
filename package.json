@@ -1,7 +1,7 @@
 {
-  "name": "template-module",
+  "name": "@server-state/raw-module",
   "version": "1.0.0",
-  "description": "Default template for server-base modules",
+  "description": "Module for raw exec output for the server-state project",
   "main": "index.js",
   "private": true,
   "scripts": {
