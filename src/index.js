@@ -11,16 +11,16 @@ const shellExec = require('shell-exec');
  * @returns {object|array|string|number|boolean} A JSON-serializable (via `JSON.stringify()`) version information about the server state
  */
 module.exports = async function (commands) {
-	if (!commands || !commands.length)
-		throw new Error('No commands were specified for the "raw-module".');
+    if (!commands || !commands.length)
+        throw new Error('No commands were specified for the "raw-module".');
 
-	const result = {};
-	for (let cmd of commands) {
-		if (result[cmd])
-			throw new Error(`Command already run: "${cmd}"`);
-		result[cmd] = await shellExec(cmd);
-	}
+    const result = {};
+    for (let cmd of commands) {
+        if (result[cmd])
+            throw new Error(`Command already run: "${cmd}"`);
+        result[cmd] = await shellExec(cmd);
+    }
 
-	return result;
+    return result;
 };
 
