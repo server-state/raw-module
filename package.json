@@ -1,9 +1,8 @@
 {
   "name": "@server-state/raw-module",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Module for raw exec output for the server-state project",
   "main": "index.js",
-  "private": true,
   "scripts": {
     "test": "jest",
     "lint": "eslint ./src",
@@ -11,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/server-state/template-module.git"
+    "url": "git+https://github.com/server-state/raw-module.git"
   },
   "author": "server-state",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/server-state/template-module/issues"
+    "url": "https://github.com/server-state/raw-module/issues"
   },
   "homepage": "https://github.com/server-state/template-module#readme",
   "devDependencies": {
