@@ -7,6 +7,28 @@
 ![module type: official](https://img.shields.io/badge/module%20type-official-%23015ba0)
 
 A module for the server-state project.
+This module allows running "raw" terminal commands and getting their output to
+stdout and stderr. Commands do **not** get run in chronological order and each
+command may only get run once per *SM*.
 
-This module allows to run commands specified on the server-side and return their output to gather data not covered by
-another module. Commands may **not** get called multiple times and the order of execution of the commands is not specified.
+### Example
+To use the module, you'll need to pass a configuartion object containing the connect information to the [*SMF*](https://github.com/server-state/specs/blob/master/terminology/server-module-function.md).
+
+Since the module uses `mysql2`, which is *mostly API-compatible with `mysqljs/mysql`*, you may refer to https://github.com/mysqljs/mysql#connection-options for specifications. In most cases, though, you'll need to pass a `host`, a `user`, a `password` and possibly a `port`:
+
+```js
+serverState.registerModule('raw', require('@server-state/raw-module'), [
+    'ls',
+    'whoami',
+    'echo Hello'
+]);
+```
+
+Example return object:
+```json
+{
+    "ls":{"stdout":"[...]","stderr":"","cmd":"ls","code":0},
+    "whoami":{"stdout":"[...]","stderr":"","cmd":"whoami","code":0},
+    "echo Hello":{"stdout":"Hello","stderr":"","cmd":"echo Hello","code":0}
+}
+```
