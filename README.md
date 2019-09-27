@@ -12,10 +12,8 @@ stdout and stderr. Commands do **not** get run in chronological order and each
 command may only get run once per *SM*.
 
 ### Example
-To use the module, you'll need to pass a configuartion object containing the connect information to the [*SMF*](https://github.com/server-state/specs/blob/master/terminology/server-module-function.md).
-
-Since the module uses `mysql2`, which is *mostly API-compatible with `mysqljs/mysql`*, you may refer to https://github.com/mysqljs/mysql#connection-options for specifications. In most cases, though, you'll need to pass a `host`, a `user`, a `password` and possibly a `port`:
-
+As `options`, the `raw-module` *SMF* takes an array of commands (`string[]`)
+that get executed:
 ```js
 serverState.registerModule('raw', require('@server-state/raw-module'), [
     'ls',
@@ -23,6 +21,10 @@ serverState.registerModule('raw', require('@server-state/raw-module'), [
     'echo Hello'
 ]);
 ```
+
+It then returns the outputs of these commands in a key-value-pair object where
+the commands serve as keys (this is also the reason why duplicate commands
+aren't allowed).
 
 Example return object:
 ```json
