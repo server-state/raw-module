@@ -12,7 +12,7 @@ const shellExec = require('shell-exec');
  */
 module.exports = async function (commands) {
     if (!commands || !commands.length)
-        throw new Error('No commands were specified for the "raw-module".');
+        throw new Error('No commands specified for the "raw-module".');
 
     const result = {};
     for (let cmd of commands) {
