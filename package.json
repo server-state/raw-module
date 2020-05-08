@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/server-state/template-module#readme",
   "devDependencies": {
-    "eslint": "^6.3.0",
+    "eslint": "^7.0.0",
     "jest": "^26.0.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7"
